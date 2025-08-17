@@ -71,50 +71,7 @@ public class RentalController {
         rentalServices.deleteRental(id);
         return ResponseEntity.noContent().build();
     }
+
+
 }
 
-/*
-API Endpoints:
-
-1. POST /api/rentals/create
-    - Description: Create a new rental.
-    - Request Body Example:
-      {
-         "categoryId": "cat123",
-         "ownerId": "owner456",
-         "itemName": "Mountain Bike",
-         "description": "A sturdy mountain bike for rent.",
-         "status": "AVAILABLE",
-         "pricePerDay": 15.0,
-         "lat": 37.7749,
-         "lon": -122.4194,
-         "images": ["image1.jpg", "image2.jpg"]
-      }
-
-2. GET /api/rentals/get/{id}
-    - Description: Get rental details by rental ID.
-    - No request body.
-
-3. GET /api/rentals/getall
-    - Description: Get all rentals.
-    - No request body.
-
-4. PUT /api/rentals/update/{id}
-    - Description: Update an existing rental by ID.
-    - Request Body Example:
-      {
-         "categoryId": "cat123",
-         "ownerId": "owner456",
-         "itemName": "Updated Mountain Bike",
-         "description": "Updated description.",
-         "status": "RENTED",
-         "pricePerDay": 18.0,
-         "lat": 37.7750,
-         "lon": -122.4195,
-         "images": ["image1.jpg", "image3.jpg"]
-      }
-
-5. DELETE /api/rentals/delete/{id}
-    - Description: Delete a rental by ID.
-    - No request body.
-*/
