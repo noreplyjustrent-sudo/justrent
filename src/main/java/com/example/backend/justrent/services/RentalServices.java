@@ -56,4 +56,8 @@ public class RentalServices {
     public void deleteRental(String id) {
         rentalRepository.deleteById(id);
     }
+
+    public List<Rental> getRentalsByIds(List<String> ids) {
+        return rentalRepository.findByIdIn(ids);
+    }
 }

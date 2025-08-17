@@ -38,6 +38,7 @@ public class User implements UserDetails {
     private String lastName;
     private String gender;
     private boolean enabled;
+    private List<String> favouriteRentals;
 
     // constructor for creating an unverified user
     public User( String email, String password,String firstName,String lastname,String gender) {
