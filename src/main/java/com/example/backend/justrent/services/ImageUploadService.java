@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -27,9 +29,13 @@ public class ImageUploadService {
         ));
     }
 
-    public ImageUploadResponse uploadImage(MultipartFile file) throws IOException {
-        Map uploadResult = cloudinary.uploader().upload(file.getBytes(), ObjectUtils.emptyMap());
-        String url = (String) uploadResult.get("secure_url");
-        return new ImageUploadResponse(url);
+    public ImageUploadResponse uploadImages(MultipartFile[] files) throws IOException {
+        List<String> urls = new ArrayList<>();
+        for (MultipartFile file : files) {
+            Map uploadResult = cloudinary.uploader().upload(file.getBytes(), ObjectUtils.emptyMap());
+            String url = (String) uploadResult.get("secure_url");
+            urls.add(url);
+        }
+        return new ImageUploadResponse(urls);
     }
 }

@@ -15,9 +15,9 @@ public class ImageUploadController {
     private ImageUploadService imageUploadService;
 
     @PostMapping("/upload")
-    public ResponseEntity<ImageUploadResponse> uploadImage(@RequestParam("file") MultipartFile file) {
+    public ResponseEntity<ImageUploadResponse> uploadImages(@RequestParam("files") MultipartFile[] files) {
         try {
-            ImageUploadResponse response = imageUploadService.uploadImage(file);
+            ImageUploadResponse response = imageUploadService.uploadImages(files);
             return ResponseEntity.ok(response);
         } catch (Exception e) {
             return ResponseEntity.badRequest().build();
