@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.backend.justrent.dto.userProfileResponse;
 import com.example.backend.justrent.dto.userResponse;
 import com.example.backend.justrent.model.User;
 import com.example.backend.justrent.services.UserService;
@@ -52,6 +53,13 @@ public class UserController {
             @RequestParam String rentalId) {
         String result = userService.addRentalToFavorites(userId, rentalId);
         return ResponseEntity.ok(result);
+    }
+
+    @GetMapping("/profile/{userId}")
+    public ResponseEntity<userProfileResponse> getUserProfile(@PathVariable String userId) {
+        return userService.getUserProfile(userId)
+                .map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
 }

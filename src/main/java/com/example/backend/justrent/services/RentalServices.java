@@ -60,4 +60,8 @@ public class RentalServices {
     public List<Rental> getRentalsByIds(List<String> ids) {
         return rentalRepository.findByIdIn(ids);
     }
+
+    public List<Rental> getRentalsByOwnerId(String userId) {
+        return rentalRepository.findByOwnerId(userId);
+    }
 }

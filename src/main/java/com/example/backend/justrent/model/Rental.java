@@ -29,7 +29,8 @@ public class Rental {
     private String lat;
     private String lon;
     private List<String> images;
-    private List<Date> notAvalableDates;
+    private List<String> chatUserIds;
+    private List<Date> notAvailableDates;
 
     public Rental( String categoryId, String ownerId, String itemName, String description, String status, double pricePerDay, String lat, String lon, List<String> images) {
         Common common = new Common();

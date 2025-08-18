@@ -65,6 +65,8 @@ public class RentalController {
         return ResponseEntity.ok(rental);
     }
 
+
+    
     // Delete rental
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<Void> deleteRental(@PathVariable String id) {
